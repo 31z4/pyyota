@@ -22,7 +22,7 @@ class Yota(object):
         product_data = slider_data[product]
         current_offer = product_data['offerCode']
         offers = {
-            step['code']: step['name']
+            step['code']: {key: step[key] for key in step.iterkeys() if key != 'code'}
             for step in product_data['steps']
         }
 
